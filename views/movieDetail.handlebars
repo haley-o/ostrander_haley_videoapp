@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/stylesheets/movieDetail.css">
+
+<a href="/">Home</a>
+
+<!-- <h1>TEST</h1> -->
+<div>
+  {{#each userMovieDetail}}
+
+	<video autoplay controls>
+	<source src="../videos/{{movie_video}}" type="video/mp4">
+	</video>
+
+	<div id="textCon">
+		<h1>{{ movie_name }}</h1>
+		<h1>{{ movie_review }}</h1>
+
+		<p>{{movie_desc}}</p>
+	</div>
+
+  {{/each}}
+</div>

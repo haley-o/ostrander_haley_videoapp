@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var xhb = require('express-handlebars');
+var router = express.Router();
 
 var app = express();
 
@@ -23,9 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // import all of your routes
 app.use('/', require('./routes/index'));
+app.use('/usermovies', require('./routes/movies'));
 app.use('/users', require('./routes/users'));
-app.use('/getCars', require('./routes/getCars'));
-app.use('/api', require('./routes/api'));
+app.use('/movieDetail', require('./routes/movieDetail'));
+// app.use('/kids', require('./routes/kids'));
+// app.use('/adult', require('./routes/adult'));
 
 
 // catch 404 and forward to error handler

@@ -3,7 +3,7 @@ var config = {
 	port : 3306,
 	user : "root",
 	password : "",
-	database : "cooperstuff",
+	database : "db_movieapp",
 
   kidsmode : false
 }

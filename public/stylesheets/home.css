@@ -1,0 +1,17 @@
+#homepage {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+	background: linear-gradient(to bottom right, #6254a9, #839de2);
+	height: 100vh;
+}
+
+#account {
+	color: white;
+	font-size: 28px;
+	padding: 25px;
+}

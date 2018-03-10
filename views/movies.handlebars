@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/stylesheets/movies.css">
+
+<a href="/">Home</a>
+
+<h1> Hello {{ user_name }}</h1>
+
+<ul>
+  {{#each userMovieData}}
+    <li>
+	<img src="../images/{{movie_thumbnail}}">
+      <!-- <a href="">{{movie_name}}</a> -->
+       <a class="movieTitles" href="/movieDetail/{{ movie_id }}" id="{{ movie_id }}">{{ movie_name }}</a>
+    </li>
+  {{/each}}
+</ul>

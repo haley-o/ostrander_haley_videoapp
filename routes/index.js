@@ -1,29 +1,30 @@
 var express = require('express');
+var connect = require('../utils/sqlConnect');
 var router = express.Router();
 var config = require('../config');
 
 // do some checking here => check the default user profile
 // ternary statement => MDN ternary
-var toRender = (config.kidsmode) ? 'main_kids' : 'home';
+// var toRender = (config.kidsmode) ? 'kidsAccount' : 'home';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('home', { //esto va a render el master page main.handlebars
-    title: 'Done yet?',
-    message : "handlebars is awesome",
-    mainpage : true,
-    cms : false,
-    kidsmode : config.kidsmode
+
+  connect.query('SELECT * FROM tbl_user', (err, result) => {
+    if (err) {
+      throw err; console.log(err);
+    } else {
+      console.log(result);
+
+      res.render('home', {
+        // title: 'Mini Cars',
+        // message : "A Selection of Minis",
+        userData : result
+      });
+    }
   });
+
 });
 
-//cuando pongan localhost:3000/cms va a hacer esta funcion. The router is giving the direction where to go. the path.
-router.get('/cms', (req, res) => { //req for request and res for response
-  console.log('hit the cms route');
-  res.render('cmsForm', {
-    cms : true,
-    mainpage : false
-  });
-});
 
 module.exports = router;
